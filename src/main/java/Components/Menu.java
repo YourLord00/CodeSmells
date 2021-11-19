@@ -20,12 +20,20 @@ public class Menu {
 
 
     public MenuItem getItemByName(String name){
+        /*
         for(MenuItem item : getAllDishes()){
             if(item.getDishName().equals(name)){
                 return item;
             }
         }
         return null;
+         */
+        MenuItem newItem = null;
+        for(MenuItem item : getAllDishes()){
+            if(item.getDishName().equals(name)){
+                newItem = item;
+            }
+        }
+        return newItem;
     }
-
 }
