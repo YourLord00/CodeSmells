@@ -62,7 +62,6 @@ public class MenuFileLoader {
             }
         } catch (IOException e) {
 
-
         } finally {
             try {
                 if (breader != null)

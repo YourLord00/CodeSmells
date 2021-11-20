@@ -5,11 +5,11 @@ import Components.Restaurant;
 import Entities.Dish;
 import Entities.Order;
 import Entities.SingleTable;
-
+/*
 import Terminals.KitchenTerminal;
 import Terminals.CustomerTerminal;
 import Terminals.ServiceDeskTerminal;
-
+*/
 public class CustomerTerminal extends Terminal{
 
 

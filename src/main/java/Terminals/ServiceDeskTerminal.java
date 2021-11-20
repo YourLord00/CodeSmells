@@ -23,7 +23,8 @@ public class ServiceDeskTerminal extends Terminal{
         tables = new ArrayList<SingleTable>();
     }
 
-    public KitchenTerminal grandOpening(String restaurantName, String tableConfigPath,
+    public KitchenTerminal grandOpening(String restaurantName,
+                                        String tableConfigPath,
                                         String menuFilePath){
         Restaurant.getOrCreateInstance(
                 restaurantName,
