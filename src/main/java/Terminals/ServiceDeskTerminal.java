@@ -3,9 +3,14 @@ package Terminals;
 import Components.Restaurant;
 import Components.SeatingSystem;
 import Components.ServingQueue;
-import Entities.*;
+import Entities.Dish;
+import Entities.Serving;
+import Entities.SingleTable;
+import Entities.TerminalPrintType;
+/*
 import Terminals.KitchenTerminal;
 import Terminals.CustomerTerminal;
+*/
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +23,8 @@ public class ServiceDeskTerminal extends Terminal{
         tables = new ArrayList<SingleTable>();
     }
 
-    public KitchenTerminal grandOpening(String restaurantName, String tableConfigPath, String menuFilePath){
+    public KitchenTerminal grandOpening(String restaurantName, String tableConfigPath,
+                                        String menuFilePath){
         Restaurant.getOrCreateInstance(
                 restaurantName,
                 tableConfigPath,

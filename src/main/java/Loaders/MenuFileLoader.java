@@ -2,13 +2,17 @@ package Loaders;
 
 import Entities.MenuItem;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MenuFileLoader {
 
-    private final static String[] headers = {"MenuItem Name", "Type" ,"Price", "Calorie"};
+    private final static String[] HEADERS = {"MenuItem Name", "Type" ,"Price", "Calorie"};
     private String fileName;
     public MenuFileLoader(String fileName){
         this.fileName = fileName;
@@ -21,7 +25,7 @@ public class MenuFileLoader {
 
     public List<MenuItem> load(){
         List<MenuItem> menuItems = new ArrayList<MenuItem>();
-        int numberOfColumns = headers.length;
+        int numberOfColumns = HEADERS.length;
         boolean useDefault = true;
 
         BufferedReader breader = null;File file;
