@@ -47,42 +47,48 @@ public class ServiceDeskTerminal extends Terminal{
         Restaurant re = Restaurant.getInstance();
         SeatingSystem ss = re.getSeatingSystem();
         SingleTable table = ss.getAvailableTable(numberOfPeople);
+        CustomerTerminal ct = null;
         if(table != null){
 
             if(ss.occupy(table)){
                 tables.add(table);
-                printToScreen("New table " + table.getIndex() +" checked in, number of people: " + numberOfPeople);
-                return new CustomerTerminal(table);
+                printToScreen("New table "
+                        + table.getIndex()
+                        + " checked in, number of people: "
+                        + numberOfPeople);
+                ct = new CustomerTerminal(table);
             }else{
-                printToScreen("Table " + table.getIndex() +" occupied. Check in failed.", TerminalPrintType.Error);
-                return null;
+                printToScreen(
+                        + table.getIndex()
+                        + " occupied. Check in failed.", TerminalPrintType.Error);
+                ct = null;
             }
         }else{
             printToScreen("Not enough seat", TerminalPrintType.Error);
-            return null;
+            ct = null;
         }
+        return ct;
     }
 
     public void checkOut(SingleTable table){
         Restaurant re = Restaurant.getInstance();
         SeatingSystem ss = re.getSeatingSystem();
-        if(table.isCheckingOut()){
+        if(table.isCheckingOut()) {
 
-            if(ss.vacate(table)){
+            if (ss.vacate(table)) {
                 tables.remove(table);
-                printToScreen( "Table "+table.getIndex()+" checked out.");
-            }else
-                printToScreen("Vacating table " +table.getIndex()+ " failed.", TerminalPrintType.Error);
-
-
-        }else{
-
+                printToScreen("Table " + table.getIndex() + " checked out.");
+            } else {
+                printToScreen("Vacating table "
+                        + table.getIndex() + " failed.", TerminalPrintType.Error);
+            }
         }
     }
 
     public void serveDish(){
         ServingQueue sq = ServingQueue.getInstance();
-        Serving serving = sq.take();Dish dish = serving.getDish();
+        Serving serving = sq.take();
+        Dish dish = serving.getDish();
         SingleTable table = serving.getToTable();
         table.addDish(dish);
         printToScreen(dish.getMenuItem().getDishName()+ " served to table " + table.getIndex());

@@ -1,8 +1,8 @@
 package UnitTests.Loaders;
 
 import Entities.MenuItem;
-import Entities.SingleTable;
 import Loaders.MenuFileLoader;
+import Entities.SingleTable;
 import Loaders.TableFileLoader;
 import org.junit.Test;
 
