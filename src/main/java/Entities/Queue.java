@@ -14,20 +14,32 @@ public abstract class Queue<T> {
     }
 
     public boolean put(T item){
+        boolean temp;
         try {
             queue.put(item);
-            return true;
+            temp = true;
         }catch (InterruptedException e){
-            return false;
+            temp = false;
         }
+        return temp;
     }
 
     public T take(){
-        try {
-            return queue.take();
-        }catch (InterruptedException e){
-            return null;
+        /*
+        try{
+            curr = queue.take();
+        }catch ((InterruptedException e)){
+            curr = null;
         }
+        return curr;
+         */
+        T curr;
+        try {
+            curr = queue.take();
+        }catch (InterruptedException e){
+            curr = null;
+        }
+        return curr;
     }
 
 }
